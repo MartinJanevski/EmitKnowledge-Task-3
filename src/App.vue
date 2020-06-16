@@ -1,27 +1,20 @@
 <template>
   <div id="app">
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-white">
       <HeaderComponent></HeaderComponent>
-      <!-- Navbar-->
-    </nav>
+
     <div id="layoutSidenav">
       <div id="layoutSidenav_nav">
         <nav class="sb-sidenav accordion sb-sidenav-light" id="sidenavAccordion">
           <div class="sb-sidenav-menu">
             <div class="nav">
-
               <SideNavigationComponent></SideNavigationComponent>
-
             </div>
           </div>
-
         </nav>
+
       </div>
       <div id="layoutSidenav_content" class="container-fluid">
         <main>
-            <div class="card">
-              <div class="card-body">
-                </div></div>
             <MainComponent></MainComponent>
         </main>
       </div>

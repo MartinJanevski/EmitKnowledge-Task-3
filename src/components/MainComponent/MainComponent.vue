@@ -1,27 +1,42 @@
 <template>
     <div>
     <div v-for="item of filteredPosts" v-bind:key="item.id" id="App" >
+        <div >
 
-        <div class="card">
-            <div class="card-body">
-                <div v-if="item.type=='story'">
-                    <h6 class="text-left">{{item.title}}</h6>
+            <div class="card ">
+                <div class="card-body">
+                    <div v-if="item.type=='story'" >
+                    <blockquote class="blockquote ">
+
+                        <a class="text-black-50" :href="item.url">
+                               <div class="text-left">{{item.title}}</div>
+                             </a>
 
 
-                    <span class="small">Likes: {{item.score}} </span>
-                    <span class="small" >  Author: {{item.by}} </span>
-                    <span class="small">Time : {{TimeConverter(item.time)}}</span>
-                    <span class="small"> <a v-bind:href="item.url">{{item.url}}  </a> </span>
-                    <span class="text-right">Comments: {{item.descendants}}</span>
-                    <span class="small">               Type: {{item.type}}    </span>
+                        <footer class="blockquote-footer text-left ">
+                                <div class="text-right">
+                                    <span class="text-right "> <a href="#" class="badge badge-dark align-top   ">{{item.descendants}}</a> </span>
+                                    <span class="small lnr lnr-location m-4">   </span>
+                                    <span class="lnr lnr-star"></span>
+                                </div>
+                            <cite title="Source Title" class="text-left">
+                                <span class=" lnr lnr-heart"> {{item.score}}   </span>
+                                <span class=" lnr lnr-user" >  {{item.by}}   </span>
+                                <span class="lnr lnr-clock">  {{TimeConverter(item.time)}}     </span>
+                                <span class=""> <a v-bind:href="item.url">{{item.url}}    </a> </span></cite>
+                        </footer>
+                    </blockquote>
+                    </div>
                 </div>
             </div>
-        </div>
 
+        </div>
     </div>
     </div>
 </template>
-<style>
+<style scoped>
+
+
 
 
 </style>
@@ -36,7 +51,7 @@
         data: () =>{
             return {
              List: [],
-            search: ''
+             search: ''
             }
         },
         created () {
@@ -58,7 +73,13 @@
                     var seconds = "0" + date.getSeconds();
                     var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
                     return (formattedTime);            }
+            },
+            clearList(){
+                return (this.List=[],
+                 this.search='')
             }
+
+
         },
         computed:{
             filteredPosts: function(){
@@ -70,6 +91,10 @@
                 return filteredList;
 
             }
+        },
+        mounted(){
+            this.clearList();
+
         }
 
     }

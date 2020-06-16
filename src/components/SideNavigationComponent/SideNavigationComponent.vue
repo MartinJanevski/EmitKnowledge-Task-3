@@ -81,11 +81,16 @@
                                 axios.get(url).then(response => {
                                     this.List.push(response.data)
                                     EventBus.$emit('ListItems', this.List)
-                                });
+
+
+
+                                })
+
                             }
                         }
                     );
                 this.List = []
+
             },
             ShowHot : function(){
                 axios
@@ -138,7 +143,8 @@
                         }
                     );
                 this.List = []
-            }
+            },
+
 
         }
     }

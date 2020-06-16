@@ -4,7 +4,11 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {store} from './store/store';
 
+
+
 export const EventBus = new Vue();
+
+
 
 new Vue({
 

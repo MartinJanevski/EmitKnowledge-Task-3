@@ -1,11 +1,9 @@
 <template>
     <div >
+        <input type="text" v-model="search"
+               @input="update" class="form-control border "  placeholder="Search stories by title, url or author" >
 
-            <input type="text" id="tc"
-                   v-model="search"
-                   @input="update"
-                   class="form-control navbar-text mx-md-4"
-                   placeholder="Search stories by title, url or author" style="width:200px">
+
     </div>
 </template>
 
